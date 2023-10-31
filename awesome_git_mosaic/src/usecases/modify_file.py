@@ -1,4 +1,5 @@
 import uuid
+from random import random
 
 
 class ModifyFile:
@@ -7,7 +8,7 @@ class ModifyFile:
         self.filename = filename
 
     def modify(self, content: str = None):
-        content = content or str(uuid.uuid4())
+        content = content or f"{uuid.uuid4()} {random()}"
         f = open(self.filename, "w+")
         f.write(content)
         f.close()

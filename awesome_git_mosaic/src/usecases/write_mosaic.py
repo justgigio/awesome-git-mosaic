@@ -1,4 +1,5 @@
 from datetime import datetime
+from random import random
 
 from adapters.git_mosaic.git_mosaic_adapter import GitMosaicAdapter
 from gateways.git.git_gateway import GitGateway
@@ -18,17 +19,30 @@ class WriteMosaic:
 
         timestamps = []
         if background:
-            bgstr = '#' * (len(message) * (multiply + 1))
-            timestamps += self.git_mosaic_adapter.output(bgstr, datetime.today(), False)
+            bgstr = '#' * (len(message) * multiply)
+            timestamps += self.git_mosaic_adapter.output(bgstr, datetime.today(), True, True)
 
         for i in range(strength):
             timestamps += self.git_mosaic_adapter.output(f'{message} ' * multiply)
 
+        timestamps.sort()
+
+        total = len(timestamps)
+        count = 0.0
+        last_pct = 0
+        print(f"Creating {total} commits...")
         for timestamp in timestamps:
-            print(f"Commit {timestamp}")
+            # print(f"Commit {timestamp}")
             self.modify_file.modify()
             self.git_gateway.add()
-            self.git_gateway.commit(timestamp.ctime(), timestamp)
+            self.git_gateway.commit(f"{timestamp.ctime()} {random()}", timestamp)
+
+            count += 1
+            pct = round(count * 100 / total)
+
+            if pct % 5 == 0 and pct != last_pct:
+                print(f"{pct}%")
+                last_pct = pct
 
         self.git_gateway.push()
 

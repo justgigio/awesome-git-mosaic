@@ -14,11 +14,14 @@ class BasicCharmap:
             model_file = path.join(current_dir, 'char_model.txt')
         self.chars = self._load_char_model(model_file, char_width, char_height, char_list)
 
-    def translate(self, string: str, with_spaces: bool = True):
+    def translate(self, string: str, with_spaces: bool = True, background: bool = False):
         string = unidecode(string).lower()
         mapped_chars = [self.chars[c] for c in string]
 
-        space = ' ' if with_spaces else ''
+        if with_spaces:
+            space = '#' if background else ' '
+        else:
+            space = ''
         output = []
 
         for line in range(len(mapped_chars[0])):

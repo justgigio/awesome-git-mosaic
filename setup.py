@@ -19,5 +19,5 @@ setuptools.setup(
     python_requires='>=3.6',                # Minimum version requirement of the package
     py_modules=["awesome_git_mosaic"],             # Name of the python package
     package_dir={'':'awesome_git_mosaic/src'},     # Directory of the source code of the package
-    install_requires=['unidecode']                     # Install other dependencies if any
+    install_requires=['unidecode'],                     # Install other dependencies if any
 )
