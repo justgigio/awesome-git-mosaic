@@ -14,12 +14,12 @@ class WriteMosaic:
         self.git_gateway = git_gateway or GitGateway()
         self.modify_file = modify_file or ModifyFile()
 
-    def write(self, message: str, strength: int = 5, multiply: int = 1, background: bool = False):
+    def write(self, message: str, strength: int = 15, multiply: int = 1, background: bool = False):
 
         timestamps = []
         if background:
-            bgstr = '▉' * 100
-            timestamps += self.git_mosaic_adapter.output(bgstr, datetime.now(), False)
+            bgstr = '#' * (len(message) * (multiply + 1))
+            timestamps += self.git_mosaic_adapter.output(bgstr, datetime.today(), False)
 
         for i in range(strength):
             timestamps += self.git_mosaic_adapter.output(f'{message} ' * multiply)
