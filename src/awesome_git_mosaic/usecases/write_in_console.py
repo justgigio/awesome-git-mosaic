@@ -1,4 +1,4 @@
-from adapters.console.console_adapter import ConsoleAdapter
+from awesome_git_mosaic.adapters.console.console_adapter import ConsoleAdapter
 
 
 class WriteInConsole:

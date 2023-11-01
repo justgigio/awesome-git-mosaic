@@ -1,6 +1,6 @@
 import os
 
-from usecases.modify_file import ModifyFile
+from awesome_git_mosaic.usecases.modify_file import ModifyFile
 
 
 class TestModifyFile:

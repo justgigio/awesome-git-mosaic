@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 
-from charmaps.basic.basic_charmap import BasicCharmap
-from adapters.console.console_adapter import ConsoleAdapter, CONSOLE_PIXEL, CONSOLE_SPACE
+from awesome_git_mosaic.charmaps.basic.basic_charmap import BasicCharmap
+from awesome_git_mosaic.adapters.console.console_adapter import ConsoleAdapter, CONSOLE_PIXEL, CONSOLE_SPACE
 
 
 class TestConsoleAdapter:

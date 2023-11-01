@@ -1,4 +1,4 @@
-from usecases.make_commit import MakeCommit
+from awesome_git_mosaic.usecases.make_commit import MakeCommit
 
 
 class TestMakeCommit:

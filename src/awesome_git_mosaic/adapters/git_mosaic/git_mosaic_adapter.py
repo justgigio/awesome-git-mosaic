@@ -2,7 +2,7 @@ from typing import List
 from datetime import datetime, timedelta
 from random import randint
 
-from charmaps.basic.basic_charmap import BasicCharmap
+from awesome_git_mosaic.charmaps.basic.basic_charmap import BasicCharmap
 
 
 class GitMosaicAdapter:

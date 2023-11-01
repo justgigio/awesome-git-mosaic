@@ -1,9 +1,9 @@
 from datetime import datetime
 from random import random
 
-from adapters.git_mosaic.git_mosaic_adapter import GitMosaicAdapter
-from gateways.git.git_gateway import GitGateway
-from usecases.modify_file import ModifyFile
+from awesome_git_mosaic.adapters.git_mosaic.git_mosaic_adapter import GitMosaicAdapter
+from awesome_git_mosaic.gateways.git.git_gateway import GitGateway
+from awesome_git_mosaic.usecases.modify_file import ModifyFile
 
 
 class WriteMosaic:
@@ -31,6 +31,7 @@ class WriteMosaic:
         count = 0.0
         last_pct = 0
         print(f"Creating {total} commits...")
+        self.git_gateway.disable_garbage_collector()
         for timestamp in timestamps:
             # print(f"Commit {timestamp}")
             self.modify_file.modify()
@@ -45,4 +46,4 @@ class WriteMosaic:
                 last_pct = pct
 
         self.git_gateway.push()
-
+        self.git_gateway.enable_garbage_collector()

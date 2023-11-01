@@ -20,6 +20,12 @@ class GitGateway:
 
         return self._git('push', 'origin', branch)
 
+    def disable_garbage_collector(self):
+        return self._git('config', '--local', 'gc.auto', '0')
+
+    def enable_garbage_collector(self):
+        return self._git('config', '--local', 'gc.auto', '1')
+
     def _current_branch(self):
       return self._git('rev-parse', '--abbrev-ref', 'HEAD')
 

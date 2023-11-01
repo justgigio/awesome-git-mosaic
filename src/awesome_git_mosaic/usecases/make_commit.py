@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from gateways.git.git_gateway import GitGateway
+from awesome_git_mosaic.gateways.git.git_gateway import GitGateway
 
 
 class MakeCommit:

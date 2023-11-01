@@ -1,4 +1,4 @@
-from charmaps.basic.basic_charmap import BasicCharmap, CHARMAP_PIXEL
+from awesome_git_mosaic.charmaps.basic.basic_charmap import BasicCharmap, CHARMAP_PIXEL
 
 
 class TestBasicCharmap:
