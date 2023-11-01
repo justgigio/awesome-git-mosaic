@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "awesome_git_mosaic"
+version = "0.0.1"
+description = "An awesome tool to write small texts on GitHub mosaic"
+authors = ["Giovane Costa <gigio.coder@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Unidecode = "==1.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+pycodestyle = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
