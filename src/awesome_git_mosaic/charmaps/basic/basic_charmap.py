@@ -19,7 +19,7 @@ class BasicCharmap:
         mapped_chars = [self.chars[c] for c in string]
 
         if with_spaces:
-            space = '#' if background else ' '
+            space = CHARMAP_PIXEL if background else ' '
         else:
             space = ''
         output = []
