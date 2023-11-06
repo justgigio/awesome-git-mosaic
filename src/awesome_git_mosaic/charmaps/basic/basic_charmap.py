@@ -2,19 +2,24 @@ from os import path
 
 from unidecode import unidecode
 
+from typing import Optional
+
+from awesome_git_mosaic.charmaps.charmap import Charmap
+
+
 CHARMAP_PIXEL = 'o'
 
 
-class BasicCharmap:
+class BasicCharmap(Charmap):
 
-    def __init__(self, model_file: str = None, char_width: int = 5, char_height: int = 7,
-                 char_list: str = ' abcdefghijklmnopqrstuvwxyz0123456789#'):
+    def __init__(self, model_file: Optional[str] = None, char_width: int = 5, char_height: int = 7,
+                 char_list: str = ' abcdefghijklmnopqrstuvwxyz0123456789#') -> None:
         if not model_file:
             current_dir = path.dirname(path.abspath(__file__))
             model_file = path.join(current_dir, 'char_model.txt')
         self.chars = self._load_char_model(model_file, char_width, char_height, char_list)
 
-    def translate(self, string: str, with_spaces: bool = True, background: bool = False):
+    def translate(self, string: str, with_spaces: bool = True, background: bool = False) -> list:
         string = unidecode(string).lower()
         mapped_chars = [self.chars[c] for c in string]
 
@@ -29,28 +34,23 @@ class BasicCharmap:
 
         return output
 
-    def is_pixel(self, char: str):
+    def is_pixel(self, char: str) -> bool:
         return char == CHARMAP_PIXEL
 
-    def _load_char_model(self, model_file: str, char_width: int, char_height: int, char_list: int):
+    def _load_char_model(self, model_file: str, char_width: int, char_height: int, char_list: str) -> dict[str, list[list]]:
 
         f = open(model_file, 'r')
         lines = f.read().splitlines(keepends=False)
         f.close()
 
-        char_map = {c: [] for c in char_list}
+        char_map: dict[str, list[list]] = {}
 
-        line_number = 0
-        for line in lines:
-            if line == '':
-                continue
+        for char_index, char in enumerate(char_list):
+            char_map[char] = []
 
-            char_line = line_number % char_height
-            char_index = line_number // char_height
+            for i in range(char_height):
+                char_line = i + char_index + (char_height * char_index)
 
-            char = char_list[char_index]
-            char_map[char].append(list(line))
-
-            line_number += 1
+                char_map[char].append(list(lines[char_line][:char_width]))
 
         return char_map

@@ -11,6 +11,10 @@ setup:
 test: code-style
 	poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90
 
+.PHONY: test-only
+test-only:
+	poetry run py.test tests --no-cov
+
 .PHONY: build
 build:
 	poetry build
