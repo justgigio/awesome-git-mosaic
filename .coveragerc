@@ -1,2 +1,7 @@
 [run]
-omit = .tywin/*,venv/*,.cache/*,terraform/*,alembic/*,config/*,tests/*,vendored/*,deploy*
+omit = .tywin/*,venv/*,.cache/*,terraform/*,alembic/*,config/*,tests/*,vendored/*,deploy*,__main__.py
+
+[report]
+exclude_lines = 
+    pragma: no cover
+    if TYPE_CHECKING:

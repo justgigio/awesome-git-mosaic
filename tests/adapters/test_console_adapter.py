@@ -6,7 +6,7 @@ from awesome_git_mosaic.adapters.console.console_adapter import ConsoleAdapter, 
 
 class TestConsoleAdapter:
 
-    def test_write(self):
+    def test_output(self):
         charmap = BasicCharmap()
         charmap.translate = MagicMock(return_value=['o '])
 

@@ -5,7 +5,7 @@ from awesome_git_mosaic.adapters.console.console_adapter import ConsoleAdapter, 
 from awesome_git_mosaic.usecases.write_in_console import WriteInConsole
 
 
-class TestConsoleAdapter:
+class TestWriteInConsole:
 
     @patch("builtins.print")
     def test_write(self, mock_print):
