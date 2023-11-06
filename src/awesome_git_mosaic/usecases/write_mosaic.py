@@ -1,7 +1,8 @@
 from datetime import datetime
 from random import random
 
-from awesome_git_mosaic.adapters.git_mosaic.git_mosaic_adapter import GitMosaicAdapter
+from awesome_git_mosaic.adapters.git_mosaic.git_mosaic_adapter import \
+    GitMosaicAdapter
 from awesome_git_mosaic.gateways.git.git_gateway import GitGateway
 from awesome_git_mosaic.usecases.modify_file import ModifyFile
 

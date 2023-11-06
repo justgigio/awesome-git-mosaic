@@ -1,4 +1,9 @@
 from awesome_git_mosaic.charmaps.basic.basic_charmap import BasicCharmap
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from awesome_git_mosaic.charmaps.charmap import Charmap
+
 
 CONSOLE_PIXEL = '▉'
 CONSOLE_SPACE = ' '
@@ -6,7 +11,7 @@ CONSOLE_SPACE = ' '
 
 class ConsoleAdapter:
 
-    def __init__(self, charmap = None):
+    def __init__(self, charmap: Optional['Charmap'] = None):
         self.charmap = charmap or BasicCharmap()
 
     def output(self, message: str, with_spaces: bool = True) -> str:

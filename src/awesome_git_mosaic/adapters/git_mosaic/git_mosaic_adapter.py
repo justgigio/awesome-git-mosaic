@@ -1,16 +1,19 @@
-from typing import List
 from datetime import datetime, timedelta
 from random import randint
+from typing import List, Optional, TYPE_CHECKING
 
 from awesome_git_mosaic.charmaps.basic.basic_charmap import BasicCharmap
+
+if TYPE_CHECKING:
+    from awesome_git_mosaic.charmaps.charmap import Charmap
 
 
 class GitMosaicAdapter:
 
-    def __init__(self, charmap = None):
+    def __init__(self, charmap: Optional['Charmap'] = None):
         self.charmap = charmap or BasicCharmap()
 
-    def output(self, message: str, reference_day: datetime = None, with_spaces: bool = True, background: bool = False) -> List[datetime]:
+    def output(self, message: str, reference_day: Optional[datetime] = None, with_spaces: bool = True, background: bool = False) -> List[datetime]:
         reference_day = reference_day or datetime.today()
         lines = self.charmap.translate(message, with_spaces, background)
 

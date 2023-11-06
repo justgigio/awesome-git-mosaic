@@ -1,11 +1,9 @@
 from os import path
+from typing import Optional
 
 from unidecode import unidecode
 
-from typing import Optional
-
 from awesome_git_mosaic.charmaps.charmap import Charmap
-
 
 CHARMAP_PIXEL = 'o'
 
