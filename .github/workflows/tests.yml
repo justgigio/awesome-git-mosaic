@@ -1,5 +1,5 @@
 name: Test 🐍
-on: [push, workflow_call]
+on: [workflow_call]
 jobs:
   test:
     runs-on: ubuntu-latest
