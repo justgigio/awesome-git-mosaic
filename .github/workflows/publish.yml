@@ -24,7 +24,7 @@ jobs:
           $POETRY_HOME/bin/poetry install
       - name: Check Code style
         run: >-
-          $POETRY_HOME/bin/poetry run pycodestyle --statistics --ignore=E501,E902 --count src
+          $POETRY_HOME/bin/poetry run pycodestyle --statistics --ignore=E501,W503,E902 --count src
       - name: Check MyPy
         run: >-
           $POETRY_HOME/bin/poetry run mypy src
