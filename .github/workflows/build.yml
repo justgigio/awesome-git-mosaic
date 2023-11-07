@@ -1,4 +1,4 @@
-name: Build and Publish Python 🐍 distribution 📦 to PyPI
+name: Build 🐍
 on: push
 jobs:
   tests:

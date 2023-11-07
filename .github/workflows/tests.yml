@@ -1,4 +1,4 @@
-name: Test Python 🐍 distribution
+name: Test 🐍
 on: [workflow_call]
 jobs:
   test:
