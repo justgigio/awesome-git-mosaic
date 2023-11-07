@@ -1,7 +1,7 @@
 
 .PHONY: code-style
 code-style:
-	poetry run pycodestyle --statistics --ignore=E501,E902 --count src
+	poetry run pycodestyle --statistics --ignore=E501,W503,E902 --count src
 
 .PHONY: setup
 setup:
@@ -24,7 +24,7 @@ mypy: poetry run mypy src
 
 .PHONY: black-check
 black-check:
-	poetry run black --check src
+	poetry run black --check --diff src
 
 .PHONY: black
 black:
@@ -42,4 +42,4 @@ isort:
 check: isort-check black-check mypy
 
 .PHONY: format
-format: black isort
+format: isort black

@@ -4,8 +4,7 @@ from typing import Optional
 
 
 class ModifyFile:
-
-    def __init__(self, filename: str = '.awesome_file'):
+    def __init__(self, filename: str = ".awesome_file"):
         self.filename = filename
 
     def modify(self, content: Optional[str] = None):
