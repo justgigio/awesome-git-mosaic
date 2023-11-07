@@ -43,9 +43,9 @@ jobs:
           --cov-fail-under=90
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
-        env:
-          POETRY_HOME: /opt/poetry
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    env:
+      POETRY_HOME: /opt/poetry
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   build:
     name: Build distribution 📦
     needs:
