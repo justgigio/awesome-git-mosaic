@@ -17,7 +17,7 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - name: Install dependencies
-        run: >-
+        run: |
           export POETRY_HOME=/opt/poetry
           python3 -m venv $POETRY_HOME
           $POETRY_HOME/bin/pip install poetry==1.7.0
@@ -26,12 +26,22 @@ jobs:
       - name: Check Code style
         run: >-
           $POETRY_HOME/bin/poetry run pycodestyle --statistics --ignore=E501,E902 --count src
+      - name: Check MyPy
+        run: >-
           $POETRY_HOME/bin/poetry run mypy src
+      - name: Check Black
+        run: >-
           $POETRY_HOME/bin/poetry run black --check src
+      - name: Check isort
+        run: >-
           $POETRY_HOME/bin/poetry run isort --ac --check-only src
       - name: Execute tests
         run: >-
-          $POETRY_HOME/bin/poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90
+          $POETRY_HOME/bin/poetry run py.test tests 
+          --cov=. 
+          --cov-report xml 
+          --cov-report term 
+          --cov-fail-under=90
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
