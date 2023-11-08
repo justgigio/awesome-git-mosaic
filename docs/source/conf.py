@@ -7,7 +7,7 @@ copyright = '2023, Giovane Costa'
 author = 'Giovane Costa'
 
 release = '0.0'
-version = '0.0.2'
+version = '0.0.3'
 
 # -- General configuration
 
