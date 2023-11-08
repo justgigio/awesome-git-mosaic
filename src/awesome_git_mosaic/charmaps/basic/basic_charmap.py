@@ -16,6 +16,7 @@ class BasicCharmap(Charmap):
         char_height: int = 7,
         char_list: str = " abcdefghijklmnopqrstuvwxyz0123456789#",
     ) -> None:
+        self.char_height = char_height
         if not model_file:
             current_dir = path.dirname(path.abspath(__file__))
             model_file = path.join(current_dir, "char_model.txt")
@@ -23,20 +24,18 @@ class BasicCharmap(Charmap):
             model_file, char_width, char_height, char_list
         )
 
-    def translate(
-        self, string: str, with_spaces: bool = True, background: bool = False
-    ) -> list:
+    def translate(self, string: str, with_spaces: bool = True, inverted: bool = False) -> list:
         string = unidecode(string).lower()
         mapped_chars = [self.chars[c] for c in string]
 
-        if with_spaces:
-            space = CHARMAP_PIXEL if background else " "
-        else:
-            space = ""
-        output = []
+        space = " " if with_spaces else ""
 
-        for line in range(len(mapped_chars[0])):
-            output.append(space.join(["".join(char[line]) for char in mapped_chars]))
+        output = []
+        for line in range(self.char_height):
+            line_str = space.join(["".join(char[line]) for char in mapped_chars])
+            if inverted:
+                line_str = line_str.translate(str.maketrans(f"{CHARMAP_PIXEL} ", f" {CHARMAP_PIXEL}"))
+            output.append(line_str)
 
         return output
 

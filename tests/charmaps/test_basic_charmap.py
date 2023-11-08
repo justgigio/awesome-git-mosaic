@@ -20,19 +20,19 @@ class TestBasicCharmap:
 
         assert lines == fox
 
-    def test_translate_with_background(self):
+    def test_translate_inverted(self):
         charmap = BasicCharmap()
 
         lines = charmap.translate('FoX', True, True)
 
         fox = [
-            'oooooo ooo oo   o',
-            'o    oo   ooo   o',
-            'o    oo   oo o o ',
-            'ooo  oo   oo  o  ',
-            'o    oo   oo o o ',
-            'o    oo   ooo   o',
-            'o    o ooo oo   o'
+            '     oo   oo ooo ',
+            ' ooooo ooo o ooo ',
+            ' ooooo ooo oo o o',
+            '   ooo ooo ooo oo',
+            ' ooooo ooo oo o o',
+            ' ooooo ooo o ooo ',
+            ' oooooo   oo ooo '
         ]
 
         assert lines == fox

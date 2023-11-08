@@ -17,10 +17,10 @@ class GitMosaicAdapter:
         message: str,
         reference_day: Optional[datetime] = None,
         with_spaces: bool = True,
-        background: bool = False,
+        inverted: bool = False,
     ) -> List[datetime]:
         reference_day = reference_day or datetime.today()
-        lines = self.charmap.translate(message, with_spaces, background)
+        lines = self.charmap.translate(message, with_spaces, inverted)
 
         output = []
         y_offset = 0

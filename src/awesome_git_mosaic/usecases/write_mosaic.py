@@ -22,17 +22,19 @@ class WriteMosaic:
         message: str,
         strength: int = 15,
         multiply: int = 1,
+        with_spaces: bool = True,
         background: bool = False,
+        inverted: bool = False,
     ):
         timestamps = []
         if background:
-            bgstr = "#" * (len(message) * multiply)
+            bgstr = " " * (len(message) * multiply)
             timestamps += self.git_mosaic_adapter.output(
-                bgstr, datetime.today(), True, True
+                bgstr, datetime.today(), with_spaces, True
             )
 
-        for i in range(strength):
-            timestamps += self.git_mosaic_adapter.output(f"{message} " * multiply)
+        for _ in range(strength):
+            timestamps += self.git_mosaic_adapter.output(f"{message} " * multiply, None, with_spaces, inverted)
 
         timestamps.sort()
 
