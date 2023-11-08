@@ -54,9 +54,7 @@ class WriteMosaic:
         timestamps: list[datetime] = []
         if background:
             bgstr = " " * (len(message) * multiply)
-            timestamps += self.git_mosaic_adapter.output(
-                bgstr, None, with_spaces, True
-            )
+            timestamps += self.git_mosaic_adapter.output(bgstr, None, with_spaces, True)
 
         for _ in range(strength):
             timestamps += self.git_mosaic_adapter.output(
