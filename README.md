@@ -1,8 +1,8 @@
-[![codecov](https://codecov.io/gh/justgigio/awesome-git-mosaic/graph/badge.svg?token=0ON0YL8EAH)](https://codecov.io/gh/justgigio/awesome-git-mosaic)
-![build](https://github.com/justgigio/awesome-git-mosaic/actions/workflows/build.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/awesome-git-mosaic.svg)](https://badge.fury.io/py/awesome-git-mosaic)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/pypi/l/awesome-git-mosaic)
+![build](https://github.com/justgigio/awesome-git-mosaic/actions/workflows/build.yml/badge.svg)
+[![codecov](https://codecov.io/gh/justgigio/awesome-git-mosaic/graph/badge.svg?token=0ON0YL8EAH)](https://codecov.io/gh/justgigio/awesome-git-mosaic)
 [![Documentation Status](https://readthedocs.org/projects/awesome-git-mosaic/badge/?version=latest)](https://awesome-git-mosaic.readthedocs.io/en/latest/?badge=latest)
 
 # awesome-git-mosaic
