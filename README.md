@@ -1,12 +1,14 @@
+[![codecov](https://codecov.io/gh/justgigio/awesome-git-mosaic/graph/badge.svg?token=0ON0YL8EAH)](https://codecov.io/gh/justgigio/awesome-git-mosaic)
+![build](https://github.com/justgigio/awesome-git-mosaic/actions/workflows/build.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/awesome-git-mosaic.svg)](https://badge.fury.io/py/awesome-git-mosaic)
 ![Python Versions](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/pypi/l/awesome-git-mosaic)
-![build](https://github.com/justgigio/awesome-git-mosaic/actions/workflows/build.yml/badge.svg)
-[![codecov](https://codecov.io/gh/justgigio/awesome-git-mosaic/graph/badge.svg?token=0ON0YL8EAH)](https://codecov.io/gh/justgigio/awesome-git-mosaic)
 [![Documentation Status](https://readthedocs.org/projects/awesome-git-mosaic/badge/?version=latest)](https://awesome-git-mosaic.readthedocs.io/en/latest/?badge=latest)
 
 # awesome-git-mosaic
 A simple tool to make cool tricks with your Github activity mosaic
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/4b8ddc7b-b847-4251-aeaf-a5d9b30bebbc)
 
 # Install
 Just create a new repo on Github and install like any python lib
@@ -54,6 +56,27 @@ def write(
     inverted: bool = False,  # invert pixels or not
 ):
 ```
+# Examples
+## Default
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/5f88d805-d232-44cf-b40d-6ac3f0c9dc74)
+
+## Inverted
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/f7e5fe15-8db8-4fe8-b58e-fbefc3b1c56d)
+
+## Strengh = 5
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/23135b1b-821e-4a8c-8321-0340e5704d51)
+
+## No spaces
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/75e95974-a441-469c-bbf5-9f8e33a81277)
+
+## Multiple times
+
+![image](https://github.com/justgigio/awesome-git-mosaic/assets/698586/4c93c8fd-4d38-4c23-bd09-2d4b620876d2)
+
 # How it works
 Git allow us to [set the date and time](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---dateltdategt) of a commit, so, we can do it in retrspective or even in the future.
 
