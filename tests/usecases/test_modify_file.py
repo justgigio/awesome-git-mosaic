@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from awesome_git_mosaic.usecases.modify_file import ModifyFile
 
@@ -6,20 +7,15 @@ from awesome_git_mosaic.usecases.modify_file import ModifyFile
 class TestModifyFile:
 
     def test_file_is_modified(self):
-        filename = '.__testing_modify_file'
-        initial_content = 'initial content'
+        foldername = '.__testing_modify_folder'
 
-        f = open(filename, 'w+')
-        f.write(initial_content)
-        f.close()
+        mf = ModifyFile(foldername)
+        mf.modify('namespace')
+        mf.modify('namespace')
+        mf.modify('namespace', 'something')
+        mf.modify('namespace2')
 
-        mf = ModifyFile(filename)
-        mf.modify()
+        assert len(os.listdir(foldername)) == 2
+        assert len(os.listdir(os.path.join(foldername, 'namespace'))) == 3
 
-        f = open(filename, 'r')
-        actual_content = f.read()
-        f.close()
-
-        os.remove(filename)
-
-        assert initial_content != actual_content
+        shutil.rmtree(foldername)

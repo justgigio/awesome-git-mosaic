@@ -1,15 +1,11 @@
 
 .PHONY: code-style
 code-style:
-	poetry run pycodestyle --statistics --ignore=E501,E902 --count src
+	poetry run pycodestyle --statistics --ignore=E501,W503,E902 --count src
 
 .PHONY: setup
 setup:
 	poetry install
-
-.PHONY: test
-test: code-style
-	poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90
 
 .PHONY: test-only
 test-only:
@@ -20,11 +16,12 @@ build:
 	poetry build
 
 .PHONY: mypy
-mypy: poetry run mypy src
+mypy:
+	poetry run mypy src
 
 .PHONY: black-check
 black-check:
-	poetry run black --check src
+	poetry run black --check --diff src
 
 .PHONY: black
 black:
@@ -39,7 +36,11 @@ isort:
 	poetry run isort --ac src
 
 .PHONY: check
-check: isort-check black-check mypy
+check: code-style isort-check black-check mypy
 
 .PHONY: format
-format: black isort
+format: isort black
+
+.PHONY: test
+test: check
+	poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90
