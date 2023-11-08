@@ -10,7 +10,6 @@ readme = "README.md"
 python = "^3.10"
 Unidecode = "==1.1.1"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "==7.4.3"
 pytest-cov = "==4.1.0"
@@ -29,3 +28,8 @@ ignore_missing_imports = true
 
 [tool.isort]
 line_length = 120
+
+[project.urls]
+"Homepage" = "https://github.com/justgigio/awesome-git-mosaic"
+"Bug Tracker" = "https://github.com/justgigio/awesome-git-mosaic/issues"
+"Documentation" = "https://awesome-git-mosaic.readthedocs.io"
