@@ -6,8 +6,8 @@ project = 'Awesome Git Mosaic'
 copyright = '2023, Giovane Costa'
 author = 'Giovane Costa'
 
-release = '0.0'
-version = '0.0.3'
+release = '0.1'
+version = '0.1.0'
 
 # -- General configuration
 
