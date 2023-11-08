@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "awesome_git_mosaic"
-version = "0.1.0"
+version = "0.1.1"
 description = "An awesome tool to write small texts on GitHub mosaic"
 authors = ["Giovane Costa <gigio.coder@gmail.com>"]
 license = "MIT License"
