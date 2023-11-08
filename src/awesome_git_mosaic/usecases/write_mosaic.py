@@ -34,7 +34,9 @@ class WriteMosaic:
             )
 
         for _ in range(strength):
-            timestamps += self.git_mosaic_adapter.output(f"{message} " * multiply, None, with_spaces, inverted)
+            timestamps += self.git_mosaic_adapter.output(
+                f"{message} " * multiply, None, with_spaces, inverted
+            )
 
         timestamps.sort()
 

@@ -7,10 +7,6 @@ code-style:
 setup:
 	poetry install
 
-.PHONY: test
-test: code-style
-	poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90
-
 .PHONY: test-only
 test-only:
 	poetry run py.test tests --no-cov
@@ -20,7 +16,8 @@ build:
 	poetry build
 
 .PHONY: mypy
-mypy: poetry run mypy src
+mypy:
+	poetry run mypy src
 
 .PHONY: black-check
 black-check:
@@ -39,7 +36,11 @@ isort:
 	poetry run isort --ac src
 
 .PHONY: check
-check: isort-check black-check mypy
+check: code-style isort-check black-check mypy
 
 .PHONY: format
 format: isort black
+
+.PHONY: test
+test: check
+	poetry run py.test tests --cov=. --cov-report xml --cov-report term --cov-report html --cov-fail-under=90

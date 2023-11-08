@@ -24,7 +24,9 @@ class BasicCharmap(Charmap):
             model_file, char_width, char_height, char_list
         )
 
-    def translate(self, string: str, with_spaces: bool = True, inverted: bool = False) -> list:
+    def translate(
+        self, string: str, with_spaces: bool = True, inverted: bool = False
+    ) -> list:
         string = unidecode(string).lower()
         mapped_chars = [self.chars[c] for c in string]
 
@@ -34,7 +36,9 @@ class BasicCharmap(Charmap):
         for line in range(self.char_height):
             line_str = space.join(["".join(char[line]) for char in mapped_chars])
             if inverted:
-                line_str = line_str.translate(str.maketrans(f"{CHARMAP_PIXEL} ", f" {CHARMAP_PIXEL}"))
+                line_str = line_str.translate(
+                    str.maketrans(f"{CHARMAP_PIXEL} ", f" {CHARMAP_PIXEL}")
+                )
             output.append(line_str)
 
         return output
